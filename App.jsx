@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import MyShader from './shaders'; 
 
 // Імпорт вашого офіційного CSS-шрифту
-import '../fonts/BespokeStencil_Complete/Fonts/WEB/css/bespoke-stencil.css';
+import './fonts/BespokeStencil_Complete/Fonts/WEB/css/bespoke-stencil.css';
 
 // Підключаємо файл стилів
 import './style.css'; 
