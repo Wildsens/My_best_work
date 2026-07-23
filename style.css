@@ -1,10 +1,29 @@
-/* Базове скидання та налаштування */
-html, body, #root {
+/* ==========================================================================
+   БАЗОВІ НАЛАШТУВАННЯ ТА ПРИХОВУВАННЯ СКРОЛБАРУ
+   ========================================================================== */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
   width: 100%;
   background-color: #000000;
-  font-family: sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #ffffff;
+}
+
+html, body {
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE / Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;       /* Chrome / Safari / Opera */
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .page-wrapper {
@@ -12,16 +31,16 @@ html, body, #root {
 }
 
 /* ==========================================================================
-   ПЕРША СЕКЦІЯ (Шейдер + Текст)
+   ПЕРША СЕКЦІЯ (Шейдер + Ефект руху тексту)
    ========================================================================== */
 .section-one {
   position: relative;
   width: 100%;
-  height: 200vh; 
+  height: 200vh; /* 2 екрани заввишки для розгорнутого скролу */
   background-color: #000000;
 }
 
-/* Утримуємо шейдер на місці по центру екрана, поки ми гортаємо перші 200vh */
+/* Шейдер прилипає до верху на перші 100vh */
 .shader-container {
   position: sticky;
   top: 0;
@@ -29,68 +48,166 @@ html, body, #root {
   width: 100%;
   height: 100vh;
   z-index: 1;
+  pointer-events: none; /* Не перехоплює події скролу */
 }
 
-/* Контейнер тексту, який фізично скролиться знизу вгору */
+.shader-container > * {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Контейнер тексту розміщений на другому екрані */
 .text-container {
   position: relative;
-  width: 99%;
+  width: 100%;
   height: 100vh;
-  margin-top: 0vh; /* Початкова позиція тексту під першим екраном */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2; /* Текст лягає поверх шейдера */
+  z-index: 2;
 }
 
 #logo {
   margin: 0;
-  font-size: 280px;
+  font-size: clamp(3.5rem, 12vw, 12rem);
   font-weight: 800;
-  font-family: 'BespokeStencil-Extrabold';
+  font-family: 'BespokeStencil-Extrabold', 'Bebas Neue', sans-serif;
   color: #ffffff;
   background: transparent;
   white-space: nowrap;
   text-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+  text-align: center;
 }
 
 /* ==========================================================================
-   ДРУГА СЕКЦІЯ (Новий білий холст)
+   ДРУГА СЕКЦІЯ (Ширший блок та розширені картка / текст)
    ========================================================================== */
 .section-two {
   position: relative;
   width: 100%;
-  height: 100vh;
-  background-color: #ffffff; /* Примусовий білий фон секції */
-  color: #000000;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between; /* Розставляє текстовий блок і картку по краях */
+  align-items: center;
+  padding: 0 8dvw;                /* Відступи з боків */
+  max-width: 1600px;             /* Збільшено максимальну ширину всієї секції */
+  margin: 0 auto;                 /* Центрує секцію на надшироких моніторах */
+  z-index: 3;
+  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Лівий блок з текстом (тепер ширший) */
+.content-box {
+  width: 50%;                    /* Збільшено з 45% */
+  max-width: 750px;              /* Збільшено з 600px */
+  text-align: left;
+}
+
+#h1_upsize {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 8dvh, 5.5rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+#p_sizeup {
+  font-size: clamp(1.1rem, 2.5dvh, 1.5rem);
+  line-height: 1.5;
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+/* Правий блок з карткою (ширший розмір) */
+#second_canvas {
+  width: 40dvw;                  /* Збільшено з 30dvw */
+  max-width: 460px;              /* Збільшено з 380px для ширшої картки */
+  height: 560px;                 /* Пропорційно піднято висоту */
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3; /* Вище за всі елементи першої секції, щоб повністю перекрити їх */
-  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.5); /* Красива тінь на межі переходів секцій */
 }
 
-.content-box {
+.Block-Project {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 26px;
   text-align: center;
-  margin-bottom: 20px;
+  overflow: hidden;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-#h1_upsize{
-  font-size: 5vh;
-}
-#p_sizeup{
-  font-size: 2vh;
-  margin-top: -3vh;
-}
-#second_canvas {
-  width: 600px;
-  height: 300px;
-  background-color: #f0f0f0;
-  border: 2px dashed #ccc;
-  display: block;
+.Block-Project p {
+  width: 100%;
+  margin-top: 20px;
+  padding: 0 15px;
+  font-size: clamp(2.2rem, 4dvh, 3.2rem);
+  font-family: 'Bebas Neue', sans-serif;
+  color: #000000;
+  line-height: 1.1;
 }
 
-/* Адаптивність */
-@media (max-width: 1440px) { #logo { font-size: 180px; } }
-@media (max-width: 768px) { #logo { font-size: 80px; } }
+.Block-Project img {
+  height: 240px;                 /* Збільшено висоту картинки */
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 26px;
+  border-top-right-radius: 26px;
+}
+
+.Block-Project div {
+  width: 75%;
+  height: 52px;                  /* Збільшено кнопку */
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF0000;
+  margin: 0 auto;
+  border-radius: 11px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.Block-Project div:hover {
+  background-color: #cc0000;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   АДАПТИВНІСТЬ ПІД ТЕЛЕФОНИ ТА ПЛАНШЕТИ (Менше 900px)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .section-two {
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    padding: 80px 24px;
+  }
+
+  .content-box {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  #second_canvas {
+    width: 100%;
+    max-width: 380px;            /* Ширша картка на мобільних пристроях */
+    height: 500px;
+  }
+}

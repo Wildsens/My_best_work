@@ -2,10 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import MyShader from './shaders'; 
 
-// Імпорт вашого офіційного CSS-шрифту
 import './fonts/BespokeStencil_Complete/Fonts/WEB/css/bespoke-stencil.css';
-
-// Підключаємо файл стилів
 import './style.css'; 
 
 function App() {
@@ -25,9 +22,14 @@ function App() {
           <h1 id="h1_upsize">LIST OF TOOLS</h1>
           <p id="p_sizeup">Here you can chose what u need use</p>
         </div>
-        <canvas id="second_canvas"></canvas>
+        <div id="second_canvas">
+          <div className='Block-Project'>
+            <p>СONVERTOR</p>
+            <img src="./IMAGES/Convertor.webp" alt="UPS!" />
+            <div>INACTIVE</div>
+          </div>
+        </div>
       </section>
-
     </div>
   );
 }
