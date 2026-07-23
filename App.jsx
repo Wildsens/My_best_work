@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import MyShader from './shaders'; 
+import MyShader from './Shaders'; 
 
 import './fonts/BespokeStencil_Complete/Fonts/WEB/css/bespoke-stencil.css';
 import './style.css'; 
+import convertorImg from './IMAGES/Convertor.webp';
 
 function App() {
   return (
@@ -23,9 +24,10 @@ function App() {
           <p id="p_sizeup">Here you can chose what u need use</p>
         </div>
         <div id="second_canvas">
-          <div className='Block-Project'>
-            <p>СONVERTOR</p>
-            <img src="./IMAGES/Convertor.webp" alt="UPS!" />
+          <div className="Block-Project">
+            <p>CONVERTOR</p>
+            {/* Використовуємо змінну з імпорту замість звичайного рядка */}
+            <img src={convertorImg} alt="Convertor" />
             <div>INACTIVE</div>
           </div>
         </div>

@@ -36,11 +36,10 @@ body::-webkit-scrollbar {
 .section-one {
   position: relative;
   width: 100%;
-  height: 200vh; /* 2 екрани заввишки для розгорнутого скролу */
+  height: 200vh; 
   background-color: #000000;
 }
 
-/* Шейдер прилипає до верху на перші 100vh */
 .shader-container {
   position: sticky;
   top: 0;
@@ -48,7 +47,7 @@ body::-webkit-scrollbar {
   width: 100%;
   height: 100vh;
   z-index: 1;
-  pointer-events: none; /* Не перехоплює події скролу */
+  pointer-events: none; 
 }
 
 .shader-container > * {
@@ -91,28 +90,32 @@ body::-webkit-scrollbar {
   color: #ffffff;
   display: flex;
   flex-direction: row;
-  justify-content: space-between; /* Розставляє текстовий блок і картку по краях */
+  justify-content: space-between; 
   align-items: center;
-  padding: 0 8dvw;                /* Відступи з боків */
-  max-width: 1600px;             /* Збільшено максимальну ширину всієї секції */
-  margin: 0 auto;                 /* Центрує секцію на надшироких моніторах */
+  padding: 0 8dvw;            
+  max-width: 1600px;             
+  margin: 0 auto;                
   z-index: 3;
   box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.8);
 }
 
 /* Лівий блок з текстом (тепер ширший) */
 .content-box {
-  width: 50%;                    /* Збільшено з 45% */
-  max-width: 750px;              /* Збільшено з 600px */
+  width: 50%;                    
+  max-width: 750px;              
   text-align: left;
 }
 
 #h1_upsize {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2.8rem, 8dvh, 5.5rem);
+  font-weight: 400;             /* Зафіксувати звичайну вагу (якщо браузер намагався зробити bold) */
+  letter-spacing: 2px;          /* Розрядка між літерами робить текст візуально легшим */
   line-height: 1.05;
   margin-bottom: 1.5rem;
   color: #ffffff;
+  -webkit-font-smoothing: antialiased; /* Згладжування рендерингу в браузерах */
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #p_sizeup {
@@ -124,9 +127,9 @@ body::-webkit-scrollbar {
 
 /* Правий блок з карткою (ширший розмір) */
 #second_canvas {
-  width: 40dvw;                  /* Збільшено з 30dvw */
-  max-width: 460px;              /* Збільшено з 380px для ширшої картки */
-  height: 560px;                 /* Пропорційно піднято висоту */
+  width: 40dvw;               
+  max-width: 460px;              
+  height: 560px;                
   background-color: rgba(0, 0, 0, 0);
   display: flex;
   justify-content: center;
@@ -152,14 +155,14 @@ body::-webkit-scrollbar {
   width: 100%;
   margin-top: 20px;
   padding: 0 15px;
-  font-size: clamp(2.2rem, 4dvh, 3.2rem);
+  font-size: clamp(4.4rem, 8dvh, 6.4rem);
   font-family: 'Bebas Neue', sans-serif;
   color: #000000;
   line-height: 1.1;
 }
 
 .Block-Project img {
-  height: 240px;                 /* Збільшено висоту картинки */
+  height: 240px;                 
   width: 100%;
   object-fit: cover;
   border-top-left-radius: 26px;
@@ -168,9 +171,9 @@ body::-webkit-scrollbar {
 
 .Block-Project div {
   width: 75%;
-  height: 52px;                  /* Збільшено кнопку */
+  height: 67px;                  
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   letter-spacing: 1px;
   display: flex;
   justify-content: center;
