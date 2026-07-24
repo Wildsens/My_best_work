@@ -165,8 +165,6 @@ body::-webkit-scrollbar {
   height: 240px;                 
   width: 100%;
   object-fit: cover;
-  border-top-left-radius: 26px;
-  border-top-right-radius: 26px;
 }
 
 .Block-Project div {
@@ -186,11 +184,56 @@ body::-webkit-scrollbar {
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
+.Block-Project a{
+  width: 75%;
+  height: 67px;                  
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff0000;
+  margin: 0 auto;
+  border-radius: 11px;
+  color: #ffffff;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+}
 .Block-Project div:hover {
   background-color: #cc0000;
   cursor: not-allowed;
 }
-
+.Block-Project a:hover {
+  background-color: #cc0000;
+  transform: scale(1.1) rotateZ(2deg);
+}
+.section-three {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 8dvw;            
+  max-width: 1600px;             
+  margin: 0 auto;                
+  z-index: 3;
+  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.8);
+}
+.section-three .content-box{
+  text-align: right;
+}
+.section-three .Block-Project img{
+  margin-top: 60px;
+  height: 340px;                 
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0px;
+}
 /* ==========================================================================
    АДАПТИВНІСТЬ ПІД ТЕЛЕФОНИ ТА ПЛАНШЕТИ (Менше 900px)
    ========================================================================== */
